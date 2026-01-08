@@ -1,0 +1,147 @@
+interface EncounterType {
+  dateOfService: string;
+  fullName: string;
+  consultationType: string;
+  email: string;
+  dateOfBirth: string | null;
+  gender: string;
+}
+
+export const EncountersData: EncounterType[] = [
+  {
+    dateOfService: "2020-05-22 22:00:00",
+    fullName: "Baby kaur",
+    consultationType: "FH Test",
+    email: "loveneet+devguardianemail@genomemedical.com",
+    dateOfBirth: null,
+    gender: "other",
+  },
+  {
+    dateOfService: "2020-07-23 13:00:00",
+    fullName: "vikas patel",
+    consultationType: "Get Started - No Results",
+    email: "vikas.patel+devmlo@genomemedical.com",
+    dateOfBirth: "1990-10-10",
+    gender: "male",
+  },
+  {
+    dateOfService: "2020-07-23 13:30:00",
+    fullName: "vikas patel",
+    consultationType: "Get Started - No Results",
+    email: "vikas.patel+devmlo@genomemedical.com",
+    dateOfBirth: "1990-10-10",
+    gender: "male",
+  },
+  {
+    dateOfService: "2020-08-04 22:00:00",
+    fullName: "Baby kaur",
+    consultationType: "CDT Consultation",
+    email: "loveneet+devguardianemail@genomemedical.com",
+    dateOfBirth: null,
+    gender: "other",
+  },
+  {
+    dateOfService: "2020-08-10 14:00:00",
+    fullName: "John Doe",
+    consultationType: "Cancer Genetics",
+    email: "j.doe+test@genomemedical.com",
+    dateOfBirth: "1985-05-12",
+    gender: "male",
+  },
+  {
+    dateOfService: "2020-08-11 09:30:00",
+    fullName: "Sarah Smith",
+    consultationType: "Prenatal Screening",
+    email: "s.smith+sample@genomemedical.com",
+    dateOfBirth: "1992-02-28",
+    gender: "female",
+  },
+  {
+    dateOfService: "2020-08-12 11:00:00",
+    fullName: "Michael Chen",
+    consultationType: "Pharmacogenomics",
+    email: "m.chen+demo@genomemedical.com",
+    dateOfBirth: "1978-11-15",
+    gender: "male",
+  },
+  {
+    dateOfService: "2020-08-15 16:00:00",
+    fullName: "Elena Rodriguez",
+    consultationType: "Cardiovascular Risk",
+    email: "e.rodriguez+patient@genomemedical.com",
+    dateOfBirth: "1988-07-04",
+    gender: "female",
+  },
+  {
+    dateOfService: "2020-08-18 10:00:00",
+    fullName: "David Wilson",
+    consultationType: "FH Test",
+    email: "d.wilson+external@genomemedical.com",
+    dateOfBirth: "1965-03-22",
+    gender: "male",
+  },
+  {
+    dateOfService: "2020-08-20 13:00:00",
+    fullName: "Ayesha Khan",
+    consultationType: "General Wellness",
+    email: "a.khan+testcase@genomemedical.com",
+    dateOfBirth: "1995-12-01",
+    gender: "female",
+  },
+  {
+    dateOfService: "2020-08-22 15:30:00",
+    fullName: "Robert Taylor",
+    consultationType: "Rare Disease",
+    email: "r.taylor+dev@genomemedical.com",
+    dateOfBirth: "2010-09-18",
+    gender: "male",
+  },
+  {
+    dateOfService: "2020-08-25 08:00:00",
+    fullName: "Linda Johnson",
+    consultationType: "Cancer Genetics",
+    email: "l.johnson+lab@genomemedical.com",
+    dateOfBirth: "1954-06-30",
+    gender: "female",
+  },
+  {
+    dateOfService: "2020-08-27 12:00:00",
+    fullName: "Kevin White",
+    consultationType: "Get Started",
+    email: "k.white+demo@genomemedical.com",
+    dateOfBirth: "1982-01-14",
+    gender: "male",
+  },
+  {
+    dateOfService: "2020-08-29 14:30:00",
+    fullName: "Priya Sharma",
+    consultationType: "FH Test",
+    email: "p.sharma+patient@genomemedical.com",
+    dateOfBirth: "1989-04-05",
+    gender: "female",
+  },
+  {
+    dateOfService: "2020-09-01 10:30:00",
+    fullName: "Thomas Brown",
+    consultationType: "CDT Consultation",
+    email: "t.brown+test@genomemedical.com",
+    dateOfBirth: "1972-08-21",
+    gender: "male",
+  },
+  {
+    dateOfService: "2020-09-03 09:00:00",
+    fullName: "Maria Garcia",
+    consultationType: "Prenatal Screening",
+    email: "m.garcia+dev@genomemedical.com",
+    dateOfBirth: "1991-10-25",
+    gender: "female",
+  },
+  {
+    dateOfService: "2020-09-05 11:30:00",
+    fullName: "James Lee",
+    consultationType: "Pharmacogenomics",
+    email: "j.lee+demo@genomemedical.com",
+    dateOfBirth: "1980-03-12",
+    gender: "male",
+  },
+];
