@@ -1,4 +1,17 @@
-import { Home, Inbox, LogOut } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
+
+import { LogOut, Stethoscope, Users } from "lucide-react";
 
 import {
   Sidebar,
@@ -19,12 +32,12 @@ const items = [
   {
     title: "Encounters",
     url: "/encounters",
-    icon: Home,
+    icon: Stethoscope,
   },
   {
     title: "Patients",
     url: "/patients",
-    icon: Inbox,
+    icon: Users,
   },
 ];
 
@@ -60,12 +73,35 @@ export function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton onClick={handleLogOut}>
-              <LogOut className="h-4 w-4" /> Log out
-            </SidebarMenuButton>
+            <LogoutButton handleLogout={handleLogOut} />
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
+  );
+}
+
+function LogoutButton({ handleLogout }: { handleLogout: () => void }) {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="outline" className="w-full">
+          <LogOut className="h-4 w-4" />
+          Log out
+        </Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you sure to get logged out?</AlertDialogTitle>
+          <AlertDialogDescription>Continue to Log out.</AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction onClick={handleLogout}>
+            Yes, Continue
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }

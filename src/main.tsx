@@ -29,17 +29,31 @@ export const router = createBrowserRouter([
             children: [
               {
                 index: true,
-                element: <div>Dashboard Home</div>,
+                element: (
+                  <div className="flex items-center justify-center mt-[20rem]">
+                    Navigate to
+                    <b className="text-primary"> &nbsp; Encounters &nbsp;</b>
+                    and
+                    <b className="text-primary">&nbsp; Patients &nbsp;</b>
+                    from Sidebar to get started.
+                  </div>
+                ),
               },
               {
                 path: "patients",
                 element: <Patients />,
-                children: [{ path: ":patientId", element: <PatientDetails /> }],
+              },
+              {
+                path: "patients/:patientId",
+                element: <PatientDetails />,
               },
               {
                 path: "encounters",
                 element: <Encounters />,
-                children: [{ path: ":patientId", element: <PatientDetails /> }],
+              },
+              {
+                path: "encounters/:patientId",
+                element: <PatientDetails />,
               },
             ],
           },

@@ -13,8 +13,9 @@ export function AppNavbar() {
           orientation="vertical"
           className="mx-2 data-[orientation=vertical]:h-4"
         />
-        <h1 className="text-base font-medium">
-          Hey, {user?.username}! Welcome back.
+        <h1 className="text-base ">
+          Hey <span className="text-primary italic">{user?.username}</span>,
+          Welcome back.
         </h1>
         <div className="ml-auto flex items-center gap-2">
           <ThemeToggle />

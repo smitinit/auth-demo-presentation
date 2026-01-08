@@ -19,16 +19,17 @@ export function Login() {
 
   const [credentials, setCredentials] = useState({
     name: "",
-    email: "",
     password: "",
   });
 
   const handleLogin = () => {
-    if (!credentials.email || !credentials.password) return;
+    // check if password is provided
+    if (!credentials.password) return;
 
-    // dummy token
-    login(credentials.name, credentials.email, credentials.password);
+    // dummy login
+    login(credentials.name, credentials.password);
 
+    // give access
     navigate("/", { replace: true });
   };
 
@@ -48,7 +49,7 @@ export function Login() {
         </CardHeader>
 
         <CardContent>
-          <div className="grid gap-3">
+          <div className="grid gap-5">
             <div className="grid gap-2">
               <Label htmlFor="name">Name</Label>
               <Input
@@ -57,19 +58,6 @@ export function Login() {
                 value={credentials.name}
                 onChange={(e) =>
                   setCredentials((c) => ({ ...c, name: e.target.value }))
-                }
-              />
-            </div>
-
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="jay@example.com"
-                value={credentials.email}
-                onChange={(e) =>
-                  setCredentials((c) => ({ ...c, email: e.target.value }))
                 }
               />
             </div>

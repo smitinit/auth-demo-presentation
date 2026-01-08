@@ -1,9 +1,9 @@
 import { createContext } from "react";
-import { UserCredentials } from "./UserProvider";
+import { UserCredentials } from "../providers/user-provider";
 
 export interface UserContextType {
   user: UserCredentials | null;
-  login: (username: string, email: string, token: string) => void;
+  login: (username: string, token: string) => void;
   logout: () => void;
 }
 

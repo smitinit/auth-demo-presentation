@@ -8,6 +8,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { EncountersData } from "@/data/encounter";
+import { Link } from "react-router-dom";
+
+// Todo filter on consultation_type(single select), date_of_service(from - to, eg 2020-05-22)
 
 export function Encounters() {
   return (
@@ -24,8 +27,9 @@ export function Encounters() {
         {EncountersData.map((encounter, i) => (
           <TableRow key={i}>
             <TableCell>{encounter.dateOfService}</TableCell>
-
-            <TableCell className="font-medium">{encounter.fullName}</TableCell>
+            <TableCell className="font-medium text-primary">
+              <Link to={`${encounter.id}`}>{encounter.full_name}</Link>
+            </TableCell>
             <TableCell>{encounter.consultationType}</TableCell>
           </TableRow>
         ))}

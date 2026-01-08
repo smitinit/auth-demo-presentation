@@ -1,9 +1,8 @@
 import { ReactNode, useState } from "react";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../context/UserContext";
 
 export interface UserCredentials {
   username: string;
-  email: string;
   token: string;
 }
 
@@ -13,8 +12,8 @@ export function UserProvider({ children }: { children: ReactNode }) {
     return stored ? JSON.parse(stored) : null;
   });
 
-  const login = (username: string, email: string, token: string) => {
-    const userData = { username, email, token };
+  const login = (username: string, token: string) => {
+    const userData = { username, token };
     localStorage.setItem("user", JSON.stringify(userData));
     setUser(userData);
   };
