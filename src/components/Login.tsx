@@ -22,15 +22,35 @@ export function Login() {
     password: "",
   });
 
+  const [errors, setErrors] = useState<string[]>([]);
   const handleLogin = () => {
-    // check if password is provided
-    if (!credentials.password) return;
+    // basic validation
+    const validationErrors: string[] = [];
+
+    if (!credentials.name.trim()) {
+      validationErrors.push("User Name is required, please submit a username.");
+    }
+
+    if (
+      !credentials.password ||
+      credentials.password.length < 8 ||
+      credentials.password.length > 15
+    ) {
+      validationErrors.push(
+        "Password length must be between 8 and 15 characters."
+      );
+    }
+
+    if (validationErrors.length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    // clear previous errors
+    setErrors([]);
 
     // dummy login
     login(credentials.name, credentials.password);
-
-    // give access
-    navigate("/", { replace: true });
   };
 
   // redirect if already logged in
@@ -74,9 +94,15 @@ export function Login() {
                 }
               />
             </div>
+            {errors.length > 0 && (
+              <ul className="text-destructive text-sm text-center space-y-1">
+                {errors.map((err, i) => (
+                  <li key={i}>{err}</li>
+                ))}
+              </ul>
+            )}
           </div>
         </CardContent>
-
         <CardFooter>
           <Button className="w-full" onClick={handleLogin}>
             Login
