@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 
 import { EncountersData } from "@/data/encounter";
 
@@ -11,7 +11,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -29,11 +28,21 @@ import {
 
 import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
-import { DateRange } from "react-day-picker";
+
+import type { AppFilters } from "@/App";
+
+type FlowContext = {
+  filters: AppFilters;
+  setFilters: React.Dispatch<React.SetStateAction<AppFilters>>;
+};
 
 export function Encounters() {
-  const [dateRange, setDateRange] = useState<DateRange | undefined>();
-  const [consultationFilter, setConsultationFilter] = useState<string>("");
+  // const [dateRange, setDateRange] = useState<DateRange | undefined>();
+  // const [consultationFilter, setConsultationFilter] = useState<string>("");
+
+  // get the persisted filters
+  const { filters, setFilters } = useOutletContext<FlowContext>();
+  const { dateRange, consultationFilter } = filters.encounters;
 
   // get all the consultation options from the data to display in the filter uniquely
   const consultationOptions = Array.from(
@@ -73,10 +82,15 @@ export function Encounters() {
         {/* clear filters button */}
         <Button
           variant="outline"
-          onClick={() => {
-            setConsultationFilter("");
-            setDateRange(undefined);
-          }}
+          onClick={() =>
+            setFilters((prev) => ({
+              ...prev,
+              encounters: {
+                dateRange: undefined,
+                consultationFilter: "",
+              },
+            }))
+          }
         >
           Clear Filters
         </Button>
@@ -84,7 +98,9 @@ export function Encounters() {
         {/* consultation Filter */}
         <Select
           value={consultationFilter}
-          onValueChange={setConsultationFilter}
+          onValueChange={(value) =>
+            setFilters((prev) => ({ ...prev, consultationFilter: value }))
+          }
         >
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Consultation Filter" />
@@ -125,7 +141,15 @@ export function Encounters() {
             <Calendar
               mode="range"
               selected={dateRange}
-              onSelect={setDateRange}
+              onSelect={(value) =>
+                setFilters((prev) => ({
+                  ...prev,
+                  encounters: {
+                    ...prev.encounters,
+                    dateRange: value,
+                  },
+                }))
+              }
               numberOfMonths={2}
               className="rounded-md border shadow-sm"
               captionLayout="dropdown"
