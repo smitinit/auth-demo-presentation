@@ -12,6 +12,7 @@ import { PatientDetails } from "./components/PatientDetails.tsx";
 import { Encounters } from "./components/Encounters.tsx";
 import { Patients } from "./components/Patients.tsx";
 import { AppRoot } from "./components/AppRoot.tsx";
+import TestingContextLayout from "./components/TestingContextLayout.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
               {
                 path: "encounters/:patientId",
                 element: <PatientDetails />,
+              },
+              {
+                path: "testing-context",
+                element: <TestingContextLayout />,
               },
             ],
           },

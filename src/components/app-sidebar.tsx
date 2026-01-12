@@ -39,6 +39,11 @@ const items = [
     url: "/patients",
     icon: Users,
   },
+  {
+    title: "Learning",
+    url: "/testing-context",
+    icon: Users,
+  },
 ];
 
 export function AppSidebar() {
